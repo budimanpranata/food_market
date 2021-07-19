@@ -73,15 +73,44 @@ class _SignInPageState extends State<SignInPage> {
                     size: 45,
                     color: mainColor,
                   )
-                : RaisedButton.icon(
+                : RaisedButton(
                     onPressed: () {},
                     elevation: 0,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8)),
                     color: mainColor,
-                    child: Text('sign in'),
+                    child: Text(
+                      'sign in',
+                      style: GoogleFonts.poppins(
+                          color: Colors.white, fontWeight: FontWeight.w500),
+                    ),
                   ),
-          )
+          ),
+          Container(
+            width: double.infinity,
+            margin: EdgeInsets.only(top: 24),
+            height: 45,
+            padding: EdgeInsets.symmetric(horizontal: defaultMargin),
+            child: isloading
+                ? SpinKitFadingCircle(
+                    size: 45,
+                    color: mainColor,
+                  )
+                : RaisedButton(
+                    onPressed: () {
+                      Get.to(SignUpPage());
+                    },
+                    elevation: 0,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8)),
+                    color: greyColor,
+                    child: Text(
+                      'Create New Account',
+                      style: GoogleFonts.poppins(
+                          color: Colors.white, fontWeight: FontWeight.w500),
+                    ),
+                  ),
+          ),
         ],
       ),
     );
